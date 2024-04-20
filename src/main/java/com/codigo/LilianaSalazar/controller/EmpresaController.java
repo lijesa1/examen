@@ -79,12 +79,10 @@ public class EmpresaController {
         Empresa empresaGuardada = empresaService.registrarEmpresa(nuevaEmpresa);
         return ResponseEntity.ok(empresaGuardada);
     }
-
     private Timestamp getTimeStamp() {
         long currentTime = System.currentTimeMillis();
         return new Timestamp(currentTime);
     }
-
     @DeleteMapping("/eliminarEmpresa/{id}")
     @Operation(
             summary = "Convierte una empresa a estado DESACTIVADO",
@@ -157,9 +155,6 @@ public class EmpresaController {
     }
 
 
-
-
-
     @GetMapping("/{id}")
 
 
@@ -189,9 +184,10 @@ public class EmpresaController {
     })
 
 
-    public ResponseEntity<Optional<Empresa>>buscarPorId(@PathVariable Long id){
+    public ResponseEntity<Optional<Empresa>> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(empresaService.buscarPorId(id));
     }
+
     @GetMapping("/todos")
 
     @Operation(
@@ -218,11 +214,9 @@ public class EmpresaController {
                     content = @Content(mediaType = "application/json")
             )
     })
-    public ResponseEntity<List<Empresa>>buscarTodos(){
+    public ResponseEntity<List<Empresa>> buscarTodos() {
         return ResponseEntity.ok(empresaService.buscarEmpresas());
     }
-
-
 
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
