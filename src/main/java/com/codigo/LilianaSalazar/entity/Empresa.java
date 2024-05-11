@@ -63,4 +63,7 @@ public class Empresa {
 
     @Column(name = "date_delet")
     private Date dateDelet;
+
+    @Column(name = "date_delet2")
+    private Date dateDelet2;
 }
